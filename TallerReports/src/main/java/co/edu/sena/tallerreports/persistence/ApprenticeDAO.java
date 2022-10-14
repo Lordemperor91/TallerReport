@@ -7,6 +7,7 @@ package co.edu.sena.tallerreports.persistence;
 import co.edu.sena.tallerreports.model.Apprentice;
 import java.util.List;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,6 +41,20 @@ public class ApprenticeDAO implements IApprenticeDAO{
         } catch (RuntimeException e) {
             throw e;
         }
+    }
+
+    @Override
+    public void update(Apprentice appretience) throws Exception {
+        try {
+            EntityManagerHelper.getEntityManager().merge(appretience);
+            
+        } catch (Exception e) {
+        }JOptionPane.showMessageDialog(null, "Losiento no pudo ser actualizado");
+    }
+
+    @Override
+    public void delete(Apprentice apprentice) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
