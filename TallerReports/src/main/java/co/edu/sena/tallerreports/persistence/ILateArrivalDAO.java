@@ -20,4 +20,6 @@ public interface ILateArrivalDAO {
     public List<LateArrival> find(Apprentice documentApprentice)throws Exception;
     public List<LateArrival> findAll() throws Exception;  
     public LateArrival find(Date dateArrival)throws Exception;
+
+    public LateArrival find(Integer id);
 }
