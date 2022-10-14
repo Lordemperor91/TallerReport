@@ -54,7 +54,11 @@ public class ApprenticeDAO implements IApprenticeDAO{
 
     @Override
     public void delete(Apprentice apprentice) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            EntityManagerHelper.getEntityManager().remove(apprentice);
+            
+        } catch (Exception e) {
+        }JOptionPane.showMessageDialog(null, "Losiento no se pudo eliminar ");
     }
     
 }

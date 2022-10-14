@@ -13,7 +13,8 @@ import java.util.List;
  */
 public interface IApprenticeDAO {
     public void insert(Apprentice apprentice) throws Exception;
-    
+    public void update (Apprentice appretience)throws  Exception;
+    public void delete(Apprentice apprentice)throws  Exception;
     public Apprentice find(Long document) throws Exception;
     public List<Apprentice> findAll() throws Exception;
 }
