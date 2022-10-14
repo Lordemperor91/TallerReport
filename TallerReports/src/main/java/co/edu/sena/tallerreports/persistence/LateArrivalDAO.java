@@ -9,6 +9,7 @@ import co.edu.sena.tallerreports.model.LateArrival;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,6 +55,23 @@ public class LateArrivalDAO implements ILateArrivalDAO{
             return EntityManagerHelper.getEntityManager().find(LateArrival.class, dateArrival);
         } catch (RuntimeException e) {
             throw e;
+        }
+    }
+
+    @Override
+    public void update(LateArrival lateArrival) throws Exception {
+        try {
+            EntityManagerHelper.getEntityManager().merge(lateArrival);
+        } catch (Exception e) {
+        }JOptionPane.showMessageDialog(null, "Losiento no se puedo actualizar");
+    }
+
+    @Override
+    public void delete(LateArrival lateArrival) throws Exception {
+        try {
+            EntityManagerHelper.getEntityManager().remove(lateArrival);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Losiento no se puedo eliminar");
         }
     }
     

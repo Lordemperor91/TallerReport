@@ -7,6 +7,7 @@ package co.edu.sena.tallerreports.persistence;
 import co.edu.sena.tallerreports.model.Course;
 import java.util.List;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,6 +32,29 @@ public class CourseDAO implements ICourseDAO{
         } catch (RuntimeException e) {
             throw e;
         }
+    }
+
+    @Override
+    public void update(Course course) throws Exception {
+        try {
+            EntityManagerHelper.getEntityManager().merge(course);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Losiento no se puedo actualizar");
+        }
+    }
+
+    @Override
+    public void insert(Course course) throws Exception {
+        try {
+            EntityManagerHelper.getEntityManager().persist(course);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Losiento no se pudo insertar");
+        }
+    }
+
+    @Override
+    public void delete(Course course) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

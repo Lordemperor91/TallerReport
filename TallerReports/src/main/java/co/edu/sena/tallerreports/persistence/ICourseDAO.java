@@ -12,6 +12,9 @@ import java.util.List;
  * @author Aprendiz
  */
 public interface ICourseDAO {
-   public Course find(Integer id) throws Exception;
+   public void update(Course course  )throws Exception;
+   public void insert(Course course) throws  Exception;
+   public void delete(Course  course) throws Exception;
+    public Course find(Integer id) throws Exception;
     public List<Course> findAll() throws Exception; 
 }

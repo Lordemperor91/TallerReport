@@ -15,6 +15,8 @@ import java.util.List;
  */
 public interface ILateArrivalDAO {
     public void insert(LateArrival lateArrival) throws Exception;
+    public void update(LateArrival lateArrival)throws Exception;
+    public void delete(LateArrival lateArrival)throws  Exception;
     public List<LateArrival> find(Apprentice documentApprentice)throws Exception;
     public List<LateArrival> findAll() throws Exception;  
     public LateArrival find(Date dateArrival)throws Exception;
