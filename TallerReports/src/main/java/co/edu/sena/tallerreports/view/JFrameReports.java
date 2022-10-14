@@ -4,21 +4,18 @@
  */
 package co.edu.sena.tallerreports.view;
 
-;
-
-import co.edu.sena.tallerreports.controller.LateArrivalController;
 import co.edu.sena.tallerreports.reports.LateArrivalReport;
 
 /**
  *
  * @author Aprendiz
  */
-public class JFrameReportsTaller extends javax.swing.JFrame {
+public class JFrameReports extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameReports
      */
-    public JFrameReportsTaller() {
+    public JFrameReports() {
         initComponents();
     }
 
@@ -34,9 +31,6 @@ public class JFrameReportsTaller extends javax.swing.JFrame {
         jPanelReports = new javax.swing.JPanel();
         jButtonReportApprentice = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabelDocument = new javax.swing.JLabel();
-        jTextFieldDocument = new javax.swing.JTextField();
-        jButtonReportApprenticeDocument = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,15 +48,6 @@ public class JFrameReportsTaller extends javax.swing.JFrame {
 
         jLabel1.setText("Haz click aqui para generar el reporte");
 
-        jLabelDocument.setText("Documento:");
-
-        jButtonReportApprenticeDocument.setText("Reportemos");
-        jButtonReportApprenticeDocument.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReportApprenticeDocumentActionPerformed(evt);
-            }
-        });
-
         jLabel2.setBackground(new java.awt.Color(0, 0, 255));
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -71,13 +56,6 @@ public class JFrameReportsTaller extends javax.swing.JFrame {
         jPanelReportsLayout.setHorizontalGroup(
             jPanelReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelReportsLayout.createSequentialGroup()
-                .addComponent(jLabelDocument)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jTextFieldDocument, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonReportApprenticeDocument)
-                .addGap(14, 14, 14))
-            .addGroup(jPanelReportsLayout.createSequentialGroup()
                 .addGroup(jPanelReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelReportsLayout.createSequentialGroup()
                         .addGap(93, 93, 93)
@@ -85,24 +63,18 @@ public class JFrameReportsTaller extends javax.swing.JFrame {
                     .addGroup(jPanelReportsLayout.createSequentialGroup()
                         .addGap(126, 126, 126)
                         .addComponent(jButtonReportApprentice)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelReportsLayout.setVerticalGroup(
             jPanelReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelReportsLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonReportApprentice)
                 .addGap(3, 3, 3)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanelReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDocument)
-                    .addComponent(jTextFieldDocument, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonReportApprenticeDocument))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,15 +93,9 @@ public class JFrameReportsTaller extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonReportApprenticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReportApprenticeActionPerformed
-      LateArrivalReport latearrivalReport = new  LateArrivalReport();
-      latearrivalReport.executeReportLateArrivalAll();
+        LateArrivalReport arrivalReport = new LateArrivalReport();
+        arrivalReport.executeReportLateArrivalAll();
     }//GEN-LAST:event_jButtonReportApprenticeActionPerformed
-
-    private void jButtonReportApprenticeDocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReportApprenticeDocumentActionPerformed
-//        LateArrivalReport latearrivalReport = new  LateArrivalReport();
-//        latearrivalReport.(jTextFieldDocument.getText());
-//        latearrivalReport.close();
-    }//GEN-LAST:event_jButtonReportApprenticeDocumentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,38 +114,29 @@ public class JFrameReportsTaller extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameReportsTaller.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameReports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameReportsTaller.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameReports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameReportsTaller.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameReports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameReportsTaller.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameReports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameReportsTaller().setVisible(true);
+                new JFrameReports().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonReportApprentice;
-    private javax.swing.JButton jButtonReportApprenticeDocument;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelDocument;
     private javax.swing.JPanel jPanelReports;
-    private javax.swing.JTextField jTextFieldDocument;
     // End of variables declaration//GEN-END:variables
 }
