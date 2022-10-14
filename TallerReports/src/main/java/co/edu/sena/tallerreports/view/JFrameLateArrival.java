@@ -50,7 +50,7 @@ public class JFrameLateArrival extends javax.swing.JFrame {
         jTextFieldDate = new javax.swing.JTextField();
         jLabelObservation = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaObservation = new javax.swing.JTextArea();
         jButtonInsert = new javax.swing.JButton();
         jButtonSearch = new javax.swing.JButton();
         jButtonExit = new javax.swing.JButton();
@@ -66,9 +66,9 @@ public class JFrameLateArrival extends javax.swing.JFrame {
 
         jLabelObservation.setText("Observación:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaObservation.setColumns(20);
+        jTextAreaObservation.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaObservation);
 
         jButtonInsert.setText("Ingresar");
         jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +106,11 @@ public class JFrameLateArrival extends javax.swing.JFrame {
         });
 
         jButtonUpdate.setText("Actualizar");
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -228,7 +233,7 @@ public class JFrameLateArrival extends javax.swing.JFrame {
             Apprentice info = apprenticeController.find(document);
             lateArrival.setDocumentApprentice(info);
             lateArrival.setDateArrival(new Date());
-            lateArrival.setObservations(jTextArea1.getText());
+            lateArrival.setObservations(jTextAreaObservation.getText());
             arrivalController.insert(lateArrival);
             JOptionPane.showMessageDialog(rootPane, "Falta creada");
             System.out.println("3");
@@ -245,7 +250,7 @@ public class JFrameLateArrival extends javax.swing.JFrame {
 
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
         // TODO add your handling code here:
-        jTextArea1.setText(null);
+        jTextAreaObservation.setText(null);
         jTextFieldDocument.setText(null);
         jTextFieldDocument.setText(null);
     }//GEN-LAST:event_jButtonClearActionPerformed
@@ -254,7 +259,7 @@ public class JFrameLateArrival extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             LateArrival lateArrival = new LateArrival();
-            int option = JOptionPane.showConfirmDialog(rootPane, "Está seguro de eliminar la encuesta?",
+            int option = JOptionPane.showConfirmDialog(rootPane, "Está aputno de eliminar esta encuesta",
                     "Confirmar", JOptionPane.YES_NO_OPTION);
             if (option == JOptionPane.YES_OPTION) {
 
@@ -271,9 +276,32 @@ public class JFrameLateArrival extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButtonDeleteActionPerformed
+
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        // TODO add your handling code here:
+        try {
+            LateArrival lateArrival = new LateArrival();
+            Apprentice apprentice = new Apprentice();
+            lateArrival.setId(Integer.parseInt(jTextFieldDocument.getText()));
+            lateArrival.setObservations(String.valueOf(jTextAreaObservation.getText()));
+            apprentice.setDocument(Long.parseLong((jTextFieldDocument.getText())));
+            lateArrival.setDocumentApprentice(apprentice);
+
+            lateArrivalController.update(lateArrival);
+
+            JOptionPane.showMessageDialog(rootPane, "falta actualizada exitosamente\n"
+                    + "\nId: " + lateArrival.getId() + "\nFecha: " + lateArrival.getDateArrival()
+                    + "\nObservaciones: " + lateArrival.getObservations() + "\nDocuemento: "
+                    + lateArrival.getDocumentApprentice());
+            clear();
+        } catch (Exception e) {
+            MessageUtils.showErrorMessage("No se pudo actualizar");
+        }
+
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
     
     public void clear(){
-        jTextArea1.setText("");
+        jTextAreaObservation.setText("");
         jTextFieldDate.setText("");
         jTextFieldDocument.setText("");
     }
@@ -327,7 +355,7 @@ public class JFrameLateArrival extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelObservation;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaObservation;
     private javax.swing.JTextField jTextFieldDate;
     private javax.swing.JTextField jTextFieldDocument;
     // End of variables declaration//GEN-END:variables
